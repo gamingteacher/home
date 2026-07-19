@@ -1,78 +1,245 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Teacher - Início</title>
+    <title>Gaming Teacher — Prof. Carlos Valadares</title>
+    <meta name="description"
+        content="Site pessoal do Prof. Carlos Valadares — pesquisador em Linguística Aplicada, jogos digitais e tecnologias no ensino de línguas.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Urbanist', 'sans-serif'],
-                    },
-                    colors: {
-                        red: '#D94C50',
-                        grey: '#343434',
-                        white: '#F2F2F2',
-                        green: '#2ABD51',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
 </head>
 
-<body class="bg-white text-grey font-sans">
-    <div id="content-wrapper" class="min-h-screen flex flex-col">
-        <main class="flex-1 flex items-center">
-            <div class="max-w-6xl mx-auto p-4 w-full">
-                <div class="flex flex-col md:flex-row gap-6 items-stretch">
-                    <!-- Sidebar will be loaded here -->
-                    <div id="sidebar-container" class="md:w-5/12 lg:w-4/12"></div>
+<body>
 
-                    <!-- Right: tabbed content -->
-                    <section class="relative md:w-7/12 lg:w-8/12">
-                        <div class="w-full md:w-auto mx-auto">
-                            <!-- Navigation -->
-                            <div class="mb-3 ">
-                                <div class="w-full bg-white/80 backdrop-blur rounded-full shadow-md border flex items-center justify-center gap-2 md:gap-6 px-2 md:px-4 py-1">
-                                    <a href="index.html" class="text-base md:text-lg font-bold py-2 px-3 md:px-4 border-b-2 border-red text-red">Gaming Teacher</a>
-                                    <a href="sobre.html" class="text-base md:text-lg font-bold py-2 px-3 md:px-4 border-b-2 border-transparent text-grey hover:border-red hover:text-red">Sobre</a>
-                                    <a href="publicacoes.html" class="text-base md:text-lg font-bold py-2 px-3 md:px-4 border-b-2 border-transparent text-grey hover:border-red hover:text-red">Publicações</a>
-                                    <a href="links.html" class="text-base md:text-lg font-bold py-2 px-3 md:px-4 border-b-2 border-transparent text-grey hover:border-red hover:text-red">Links</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Content panel -->
-                            <div class="w-full bg-white/80 text-grey rounded-3xl shadow-lg backdrop-blur-lg p-6 md:p-10 md:h-[520px] min-h-[380px] overflow-y-auto">
-                                <div class="max-w-2xl">
-                                    <h2 class="text-3xl md:text-4xl font-bold text-red mb-6">Jogar é aprender!</h2>
-                                    <p class="mb-8">Jogar pode ser uma das atividades mais completas para aprendizagem de uma língua. Como professor, meu foco está em integrar os jogos que você gosta com atividades que complementam o seu conhecimento. Não é gamificação! Jogos de verdade, em contexto de verdade!</p>
-                                    <h2 class="text-3xl md:text-4xl font-bold text-red mb-6">Ensino Comunicativo!</h2>
-                                    <p>Os livros para ensino de línguas adicionais muitas vezes buscam atender diversos públicos por meio de um mesmo material. Isso resulta em tópicos que não partem da vivência dos alunos. Nós buscamos aplicar uma metodologia comunicativa, voltada às realidades de cada um, sem deixar de abordar os diferentes aspectos culturais que outras línguas proporcionam!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+    <!-- ══════════════════════════════════════════
+       ANIMATED CANVAS BACKGROUND
+  ══════════════════════════════════════════ -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ══════════════════════════════════════════
+       LANDING / PRESS START SCREEN
+  ══════════════════════════════════════════ -->
+    <div id="screen-start" role="main" aria-label="Tela de início">
+        <div class="start-card">
+            <span class="name-label">Prof. Carlos Valadares</span>
+            <img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Logo Gaming Teacher"
+                class="start-logo">
+            <h1 class="start-title">Gaming Teacher</h1>
+            <p class="start-sub">Learning can be fun!</p>
+            <button id="btn-start" aria-label="Entrar no site">▶ Press Start</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+       MAIN SCREEN
+  ══════════════════════════════════════════ -->
+    <div id="screen-main" aria-hidden="true">
+
+        <!-- Mobile header -->
+        <header id="mobile-header">
+            <span class="mh-title">Gaming Teacher</span>
+            <button id="btn-hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <!-- ── SIDEBAR ───────────────────────────── -->
+        <aside id="sidebar" aria-label="Navegação lateral">
+            <div class="sidebar-brand">
+                <img src="https://i.ibb.co/j2p7NY1/Gaming-Teacher-Logo-New.png" alt="Logo Gaming Teacher"
+                    class="sidebar-logo">
+                <div>
+                    <h1>Gaming Teacher</h1>
+                    <p class="tagline">Learning can be fun!</p>
                 </div>
             </div>
-        </main>
 
-        <!-- Footer -->
-        <footer class="bg-gradient-to-b from-white/20 to-black/100 text-white text-center py-4 mt-auto">
-            <div class="container mx-auto px-6">
-                <p>&copy; 2026 Carlos Henrique Valadares. Todos os direitos reservados.</p>
+            <nav class="sidebar-nav" aria-label="Seções do site">
+                <a href="#sobre" class="active" id="nav-sobre">Sobre mim</a>
+                <a href="#ensino" id="nav-ensino">Ensino</a>
+                <a href="#publicacoes" id="nav-publicacoes">Publicações</a>
+                <a href="#projetos" id="nav-projetos">Projetos</a>
+                <a href="#consultorias" id="nav-consultorias">Consultorias</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="sidebar-author">Prof. Carlos Valadares</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/carlosvaladares/" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.twitch.tv/gamingtchr" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="Twitch">
+                        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M11.571 4.714h1.715v5.143H11.57zm4.572 0H17.86v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0H6zm14.571 11.143-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714v9.429z" />
+                        </svg>
+                        <span>Twitch</span>
+                    </a>
+                    <a href="https://www.instagram.com/gaming.teacher/" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="Instagram">
+                        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 2c-2.717 0-3.056.01-4.122.06-1.065.05-1.79.217-2.428.465a4.902 4.902 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.247.637-.415 1.363-.465 2.428C2.01 8.944 2 9.283 2 12s.01 3.056.06 4.122c.05 1.065.218 1.79.465 2.428a4.902 4.902 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.637.247 1.363.415 2.428.465C8.944 21.99 9.283 22 12 22s3.056-.01 4.122-.06c1.065-.05 1.79-.218 2.428-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.247-.637.415-1.363.465-2.428C21.99 15.056 22 14.717 22 12s-.01-3.056-.06-4.122c-.05-1.065-.218-1.79-.465-2.428a4.902 4.902 0 00-1.153-1.772 4.902 4.902 0 00-1.772-1.153c-.637-.247-1.363-.415-2.428-.465C15.056 2.01 14.717 2 12 2zm0 1.44c2.67 0 2.987.01 4.042.058.975.044 1.504.207 1.857.344.466.174.766.39.94.565.174.174.39.466.565.94.137.353.3.882.344 1.857.048 1.055.058 1.372.058 4.042s-.01 2.987-.058 4.042c-.044.975-.207 1.504-.344 1.857a3.457 3.457 0 01-.565.94 3.457 3.457 0 01-.94.565c-.353.137-.882.3-1.857.344-1.055.048-1.372.058-4.042.058s-2.987-.01-4.042-.058c-.975-.044-1.504-.207-1.857-.344a3.457 3.457 0 01-.94-.565 3.457 3.457 0 01-.565-.94c-.137-.353-.3-.882-.344-1.857C3.45 15.056 3.44 14.717 3.44 12s.01-2.987.058-4.042c.044-.975.207-1.504.344-1.857.174-.466.39-.766.565-.94.174-.174.466-.39.94-.565.353-.137.882-.3 1.857-.344C9.013 3.45 9.33 3.44 12 3.44zm0 5.46c-1.944 0-3.5 1.556-3.5 3.5s1.556 3.5 3.5 3.5 3.5-1.556 3.5-3.5-1.556-3.5-3.5-3.5zm0 5.58c-1.15 0-2.08-.93-2.08-2.08s.93-2.08 2.08-2.08 2.08.93 2.08 2.08-.93 2.08-2.08 2.08zm4.965-6.415a1.2 1.2 0 110-2.4 1.2 1.2 0 010 2.4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                </div>
             </div>
-        </footer>
-    </div>
-    <script src="navigation.js"></script>
+        </aside>
+
+        <!-- ── CONTENT AREA ──────────────────────── -->
+        <main id="content-area" aria-label="Conteúdo principal">
+
+            <!-- ── SOBRE MIM ── -->
+            <section class="section" id="sobre" aria-labelledby="h-sobre">
+                <div class="section-header">
+                    <h2 id="h-sobre">Sobre mim</h2>
+                </div>
+
+                <div class="profile-row">
+                    <img src="./images/Photo.jpg" alt="Foto do Prof. Carlos Valadares" class="profile-photo">
+                    <div>
+                        <p>Sou Mestre e Doutorando em Estudos Linguísticos pela Universidade Federal de Minas Gerais
+                            (UFMG) e graduado em Letras — Português/Inglês pela Universidade Federal de Viçosa (UFV).
+                            Minha trajetória é marcada pela união entre o amor pelas línguas e o fascínio pelas
+                            tecnologias digitais, o que me permite atuar na intersecção entre o ensino de idiomas, a
+                            pesquisa acadêmica e a consultoria tecnológica.</p>
+                        <p>Desenvolvo pesquisas em Linguística Aplicada, com especial foco no uso de jogos e ferramentas
+                            digitais como aliados do processo de aprendizagem. Como professor e pesquisador, busco
+                            constantemente criar pontes entre a teoria acadêmica e práticas pedagógicas inovadoras,
+                            transformando a sala de aula em um ambiente dinâmico e envolvente.</p>
+                    </div>
+                </div>
+
+                <blockquote class="gt-blockquote">
+                    <p>"Videogames me fizeram aprender Inglês de uma maneira divertida e imersiva. A tecnologia sempre
+                        me atraiu, e, no momento em que iniciei meu curso em Letras, senti que havia descoberto meu
+                        lugar no mundo."</p>
+                </blockquote>
+            </section>
+
+            <!-- ── ENSINO ── -->
+            <section class="section" id="ensino" aria-labelledby="h-ensino">
+                <div class="section-header">
+                    <h2 id="h-ensino">Ensino</h2>
+                </div>
+
+                <p>Atuei como professor do Departamento de Letras da Universidade Federal de Viçosa, onde ministrei
+                    disciplinas de Língua Inglesa, Tecnologias Digitais e Ensino e Aprendizagem de Línguas. Minha
+                    experiência em sala de aula abrange desde o ensino básico e avançado até cursos de extensão
+                    intensivos e extensivos, sempre focando no engajamento do aluno.</p>
+                <p>Além da docência direta, possuo uma forte atuação na coordenação pedagógica. Sou membro da comissão
+                    coordenadora do Curso de Extensão em Língua Inglesa (CELIN) na UFV e atuei como Professor Mentor,
+                    orientando novos docentes para que possam integrar tecnologias e metodologias inovadoras em suas
+                    práticas pedagógicas de forma eficaz.</p>
+            </section>
+
+            <!-- ── PUBLICAÇÕES ── -->
+            <section class="section" id="publicacoes" aria-labelledby="h-publicacoes">
+                <div class="section-header">
+                    <h2 id="h-publicacoes">Publicações</h2>
+                </div>
+
+                <!-- Research blurb -->
+                <div>
+                    <p>Minha produção científica concentra-se no campo da Linguística Aplicada, explorando como as
+                        tecnologias digitais podem potencializar o ensino de línguas adicionais. Ao longo da minha
+                        trajetória, investiguei a fundo as affordances dos jogos digitais e a Ludic Language Pedagogy,
+                        analisando como o lúdico pode promover uma aprendizagem mais profunda e prazerosa.</p>
+                    <p>Atualmente, meu foco de pesquisa está direcionado ao impacto da Inteligência Artificial
+                        Generativa no ensino de idiomas. Investigo como essas ferramentas podem ampliar a agência
+                        docente e apoiar o redesign de práticas pedagógicas, buscando soluções que unam tecnologia de
+                        ponta e intencionalidade educativa para preparar estudantes para um mundo digital.</p>
+                    <p></p>
+                </div>
+
+                <!-- Dynamic publications grid (populated by publications.js) -->
+                <div id="pub-grid" aria-label="Grade de publicações"></div>
+                <div id="pub-details" aria-live="polite"></div>
+            </section>
+
+            <!-- ── PROJETOS ── -->
+            <section class="section" id="projetos" aria-labelledby="h-projetos">
+                <div class="section-header">
+                    <h2 id="h-projetos">Projetos</h2>
+                </div>
+
+                <p>Além da minha atuação no ensino, possuo uma sólida experiência em diversas áreas da computação. Há
+                    cerca de 20 anos, utilizo o sistema Linux e softwares de código aberto, sendo um entusiasta e
+                    defensor do software livre como um caminho essencial para a construção de uma sociedade digital mais
+                    justa, transparente e acessível.</p>
+
+                <p>Desenvolvi o <a
+                        href="https://drive.google.com/file/d/1i8EcOvABorVXCifIqik81kFzsVk3bf1W/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">Mapa da UFV no Minecraft</a>, reproduzindo as
+                    principais construções do campus da Universidade Federal de Viçosa dentro do jogo, em escala próxima
+                    da realidade. Também colaborei no desenvolvimento do <a href="https://cheapshot.itch.io/photoloco"
+                        target="_blank" rel="noopener noreferrer">PhotoLoco</a>, um micro-jogo comunitário criado pelos
+                    professores da comunidade de Ludic Language Pedagogy, reforçando o compromisso em criar ambientes
+                    lúdicos e colaborativos para a aprendizagem.</p>
+
+                <p>No campo do desenvolvimento de sistemas para educação, sou o criador do <a
+                        href="https://planit-app.pages.dev/" target="_blank" rel="noopener noreferrer">planit</a>, um
+                    LMS (Learning Management System) com funcionalidades de apresentação ao vivo para dinamizar o ensino
+                    digital. Atualmente, assumo o papel de <em>lead developer</em> do <a
+                        href="https://sabia-ufmg.vercel.app/" target="_blank" rel="noopener noreferrer">SabIA</a>
+                    (Saberes sobre Inteligência Artificial para a Aprendizagem de Línguas), uma plataforma de curadoria
+                    de ferramentas de IA voltada para o ensino de línguas, desenvolvida pelo grupo DELTA da UFMG.</p>
+            </section>
+
+            <!-- ── CONSULTORIAS ── -->
+            <section class="section" id="consultorias" aria-labelledby="h-consultorias">
+                <div class="section-header">
+                    <h2 id="h-consultorias">Consultorias</h2>
+                </div>
+
+                <p>Estou aberto a parcerias e consultorias educacionais para escolas de idiomas, escolas de ensino
+                    regular e cursinhos preparatórios. Meu objetivo é auxiliar instituições a modernizarem seus métodos
+                    de ensino através da integração estratégica de novas tecnologias e metodologias ativas.</p>
+                <p>Ofereço capacitações e cursos voltados para o uso de jogos digitais e ferramentas de Inteligência
+                    Artificial no ensino de línguas. Se você busca transformar a educação linguística da sua instituição
+                    em uma experiência mais tecnológica, lúdica e eficiente, vamos conversar sobre como posso ajudar sua
+                    equipe a alcançar esses objetivos.</p>
+
+                <div class="cta-box">
+                    <h3>Vamos conversar?</h3>
+                    <p>Entre em contato e descubra como podemos modernizar o ensino na sua instituição.</p>
+                    <a href="mailto:prof.carlosvaladares@gmail.com" class="btn-contact" id="contact-email-btn">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        prof.carlosvaladares@gmail.com
+                    </a>
+                </div>
+
+                <!-- Footer -->
+                <footer
+                    style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(52,52,52,.1); text-align: center; font-size: .82rem; opacity: .5;">
+                    &copy; 2026 Carlos Henrique Valadares. Todos os direitos reservados.
+                </footer>
+            </section>
+
+        </main>
+    </div><!-- /screen-main -->
+
+    <script src="canvas-bg.js"></script>
+    <script src="publications.js"></script>
+    <script src="app.js"></script>
+
 </body>
 
 </html>

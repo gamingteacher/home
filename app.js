@@ -100,10 +100,11 @@
       const target = document.getElementById(targetId);
       if (target && contentArea) {
         e.preventDefault();
-        contentArea.scrollTo({
-          top: target.offsetTop - 32,
-          behavior: 'smooth',
-        });
+        const targetTop = target.getBoundingClientRect().top
+                        - contentArea.getBoundingClientRect().top
+                        + contentArea.scrollTop
+                        - 32;
+        contentArea.scrollTo({ top: targetTop, behavior: 'smooth' });
       }
     });
   });
